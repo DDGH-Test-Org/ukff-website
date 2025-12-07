@@ -1,0 +1,21 @@
+---
+title: UK Freeforms
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/style.css">
+    <title>{{ title }}</title>
+  </head>
+  <body>
+    {% include "header.njk" %}
+    <main>
+      {% if title != "UK Freeforms" %}
+        <h1>{{title}}</h1>
+      {% endif %}
+      {{ content | safe }}
+    </main>
+  </body>
+</html>

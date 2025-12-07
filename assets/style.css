@@ -1,0 +1,227 @@
+:root {
+  /* hsl (fallback color) */
+  --bg-dark: hsl(250 42% 2%);
+  --bg: hsl(251 26% 5%);
+  --bg-light: hsl(250 15% 10%);
+  --text: hsl(249 100% 98%);
+  --text-muted: hsl(250 15% 72%);
+  --highlight: hsl(250 9% 41%);
+  --border: hsl(250 11% 31%);
+  --border-muted: hsl(251 16% 20%);
+  --primary: hsl(252 64% 79%);
+  --secondary: hsl(65 35% 57%);
+  --danger: hsl(9 26% 64%);
+  --warning: hsl(52 19% 57%);
+  --success: hsl(146 17% 59%);
+  --info: hsl(217 28% 65%);
+  /* oklch */
+  --bg-dark: oklch(0.1 0.015 293);
+  --bg: oklch(0.15 0.015 293);
+  --bg-light: oklch(0.2 0.015 293);
+  --text: oklch(0.96 0.03 293);
+  --text-muted: oklch(0.76 0.03 293);
+  --highlight: oklch(0.5 0.03 293);
+  --border: oklch(0.4 0.03 293);
+  --border-muted: oklch(0.3 0.03 293);
+  --primary: oklch(0.76 0.1 293);
+  --secondary: oklch(0.76 0.1 113);
+  --danger: oklch(0.7 0.05 30);
+  --warning: oklch(0.7 0.05 100);
+  --success: oklch(0.7 0.05 160);
+  --info: oklch(0.7 0.05 260);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* hsl (fallback color) */
+    --bg-dark: hsl(249 25% 91%);
+    --bg: hsl(249 60% 96%);
+    --bg-light: hsl(249 100% 100%);
+    --text: hsl(254 45% 6%);
+    --text-muted: hsl(250 11% 31%);
+    --highlight: hsl(249 100% 100%);
+    --border: hsl(250 8% 53%);
+    --border-muted: hsl(250 12% 65%);
+    --primary: hsl(255 34% 35%);
+    --secondary: hsl(62 100% 12%);
+    --danger: hsl(9 21% 41%);
+    --warning: hsl(52 23% 34%);
+    --success: hsl(147 19% 36%);
+    --info: hsl(217 22% 41%);
+    /* oklch */
+    --bg-dark: oklch(0.92 0.015 293);
+    --bg: oklch(0.96 0.015 293);
+    --bg-light: oklch(1 0.015 293);
+    --text: oklch(0.15 0.03 293);
+    --text-muted: oklch(0.4 0.03 293);
+    --highlight: oklch(1 0.03 293);
+    --border: oklch(0.6 0.03 293);
+    --border-muted: oklch(0.7 0.03 293);
+    --primary: oklch(0.4 0.1 293);
+    --secondary: oklch(0.4 0.1 113);
+    --danger: oklch(0.5 0.05 30);
+    --warning: oklch(0.5 0.05 100);
+    --success: oklch(0.5 0.05 160);
+    --info: oklch(0.5 0.05 260);
+  }
+}
+
+:root {
+  background: var(--bg);
+  color: var(--text);
+
+  font-family: Avenir, Montserrat, Corbel, "URW Gothic", source-sans-pro, sans-serif;
+  font-weight: normal;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+main {
+  margin: 1em;
+}
+
+:link {
+  color: var(--primary);
+}
+
+:visited {
+  color: color-mix(in hsl, var(--primary), black 20%);
+}
+
+:link:hover,
+:visited:hover,
+:link:active,
+:visited:active {
+  color: var(--info);
+}
+
+header h1 a:link,
+header h1 a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+header .regular-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+#mega-menu-button {
+  anchor-name: --mega-menu-anchor;
+}
+
+#mega-menu[popover] {
+  background: var(--bg-light);
+
+  background: hsl(from var(--bg-light) h s l / 0.95);
+  border: solid 1px var(--border);
+  color: var(--text);
+
+  position-anchor: --mega-menu-anchor;
+  position: absolute;
+  margin: 0;
+  top: anchor(bottom);
+  right: 1rem;
+  left: 1rem;
+  margin-top: 4px;
+
+  opacity: 0;
+  transform: translateY(-0.5rem);
+  transition: opacity 250ms ease, transform 250ms ease, max-height 250ms ease;
+}
+
+#mega-menu:popover-open {
+  opacity: 1;
+  height: fit-content;
+  max-height: 100vh;
+  transform: translateY(0);
+
+  @starting-style {
+    opacity: 0;
+    max-height: 0;
+    transform: translateY(-0.5rem);
+  }
+
+  width: calc(100% - 2em - 1rem);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem 1rem 1rem;
+  gap: 1rem;
+}
+
+#mega-menu .menu-group {
+  flex: 1;
+}
+
+#mega-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#mega-menu ul li {
+  padding: 0.5rem 0;
+  display: flex;
+  gap: 0.5rem;
+}
+
+#mega-menu .divider {
+  border-top: var(--border) solid 1px;
+}
+
+.image-box {
+  display: flex;
+  align-items: stretch;
+  gap: 1.5rem;
+  margin: 2rem 0;
+  background: var(--bg-light);
+  border: solid 1px var(--border);
+}
+
+.image-box .text {
+  flex: 1;
+  min-width: 30%;
+  padding: 3px 12px;
+}
+
+.image-box img {
+  align-self: stretch;
+  flex: 0 0 40%;
+  width: 40%;
+  object-fit: cover;
+  display: block;
+}
+
+table {
+  margin: 1rem auto;
+}
+
+td,
+th {
+  text-align: left;
+  padding: 0.5rem 1rem;
+}
+
+.icon {
+  fill: var(--info);
+  stroke: var(--info);
+  height: 1rem;
+  width: auto;
+  aspect-ratio: 1;
+}
+
+[data-notimplemented] {
+  color: var(--warning) !important;
+}
+/* @media (max-width: 768px) {
+  .image-box {
+    flex-direction: column;
+  }
+  .image-box img {
+    width: 100%;
+    height: auto;
+    flex-basis: auto;
+  }
+} */

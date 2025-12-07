@@ -1,0 +1,65 @@
+<script>
+addEventListener("click", e => {
+    if (e.target.dataset.notimplemented) {
+        e.preventDefault();
+        alert("This link doesn't go anywhere yet")
+    }
+})
+</script>
+
+<header>
+    {% include "ext-sprite.njk" %}
+  <div class="regular-content">
+    <h1><a href="/">UK Freeforms</a></h1>
+
+    <button id="mega-menu-button" popovertargetaction="toggle" popovertarget="mega-menu">
+      Menu
+    </button>
+  </div>
+
+  <nav id="mega-menu" popover>
+    <div class="menu-group">
+      <h2>UK Freeforms</h2>
+
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/online-community/">Social Media &amp; Online Communities</a></li>
+        <li><a href="/" data-notimplemented="true">Governance</a></li>
+        <li><a href="/" data-notimplemented="true">Charitable Donations</a></li>
+        <li class="divider"><a href="/credits">Credits</a></li>
+      </ul>
+    </div>
+
+    <div class="menu-group">
+      <h2>About LARP</h2>
+
+      <ul>
+        <li><a data-notimplemented="true" href="/">What are freeforms?</a></li>
+        <li><a data-notimplemented="true" href="/">Expectations of participants</a></li>
+        <li><a data-notimplemented="true" href="/">Costuming</a></li>
+      </ul>
+    </div>
+
+    <div class="menu-group">
+      <h2>UK Freeform Events</h2>
+
+      <ul>
+        <li><a href="/events/">Event Summaries</a></li>
+        <li><a data-notimplemented="true" href="/">Retford Weekender</a></li>
+        <li><a data-notimplemented="true" href="/consequences/">Consequences</a></li>
+        <li><a href="https://bristol.freeforming.uk/" target="_blank" rel="noopener noreferrer">Bristol Freeform Gamers</a> {% include "ext-ref.njk" %}</li>
+        <li><a data-notimplemented="true" href="/">Peaky Writers Retreat</a></li>
+      </ul>
+    </div>
+
+    <div class="menu-group">
+      <h2>Play at Home</h2>
+
+      <ul>
+        <li><a data-notimplemented="true" href="/">How to run a home freeform</a></li>
+        <li><a href="https://freeformgames.com/" target="_blank" rel="noopener noreferrer">Freeformgames.com</a> {% include "ext-ref.njk" %}</li>
+        <li><a data-notimplemented="true" href="/">Peaky Games for Sale</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
